@@ -3,11 +3,12 @@ package src;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
+import javax.crypto.*;
 import javax.crypto.spec.DESKeySpec;
 
 public class Encryption {
@@ -24,7 +25,8 @@ public class Encryption {
             Cipher cipher = Cipher.getInstance("DES");
             cipher.init(Cipher.ENCRYPT_MODE, securekey, random);
             return cipher.doFinal(content.getBytes());
-        } catch (Throwable e) {
+        } catch (InvalidKeyException | IllegalBlockSizeException | NoSuchPaddingException | NoSuchAlgorithmException | BadPaddingException | InvalidKeySpecException e) {
+            logger.info(e.getMessage());
             e.printStackTrace();
         }
         return null;
@@ -40,7 +42,8 @@ public class Encryption {
             cipher.init(Cipher.DECRYPT_MODE, securekey, random);
             byte[] result = cipher.doFinal(content);
             return new String(result);
-        } catch (Throwable e) {
+        } catch (InvalidKeyException | IllegalBlockSizeException | NoSuchPaddingException | NoSuchAlgorithmException | BadPaddingException | InvalidKeySpecException e) {
+            logger.info(e.getMessage());
             e.printStackTrace();
         }
         return null;
