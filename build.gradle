@@ -15,7 +15,6 @@ dependencies {
     compile 'org.slf4j:jcl-over-slf4j:1.7.25'  // bridge jakarta/apache commons logging
     compile 'org.slf4j:log4j-over-slf4j:1.7.25'  // bridge log4j logging
 
+    testCompile group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.25'
     testCompile group: 'org.testng', name: 'testng', version: '6.11'
-
-
 }
