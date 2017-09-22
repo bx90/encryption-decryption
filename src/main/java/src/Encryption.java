@@ -1,5 +1,8 @@
 package src;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
@@ -8,7 +11,8 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
 public class Encryption {
-// TODO: Add logger
+    final static Logger logger = LoggerFactory.getLogger(Encryption.class);
+
     private final static String key = "12345678";
 
     public static byte[] encrypt(String content) {
