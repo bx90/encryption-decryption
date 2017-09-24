@@ -12,4 +12,9 @@ public class EncryptionTest {
         Assert.assertEquals(password, Encryption.decrypt(Encryption.stringToByte(encryption)));
     }
 
+    @Test
+    public void printOutEncryptedContent() {
+        System.out.println(Encryption.byteToString(Encryption.encrypt(password)));
+    }
+
 }
