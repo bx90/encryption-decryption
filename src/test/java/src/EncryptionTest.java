@@ -8,8 +8,8 @@ public class EncryptionTest {
 
     @Test
     public void testEncrypt() {
-        String encryption = Encryption.BytetoString(Encryption.encrypt(password));
-        Assert.assertEquals(password, Encryption.decrypt(Encryption.StringtoByte(encryption)));
+        String encryption = Encryption.byteToString(Encryption.encrypt(password));
+        Assert.assertEquals(password, Encryption.decrypt(Encryption.stringToByte(encryption)));
     }
 
 }

@@ -18,6 +18,7 @@ public class Encryption {
 
     public static byte[] encrypt(String content) {
         try {
+            logger.info("Start encryption...");
             SecureRandom random = new SecureRandom();
             DESKeySpec desKey = new DESKeySpec(key.getBytes());
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
@@ -34,6 +35,7 @@ public class Encryption {
 
     public static String decrypt(byte[] content) {
         try {
+            logger.info("Start decryption...");
             SecureRandom random = new SecureRandom();
             DESKeySpec desKey = new DESKeySpec(key.getBytes());
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
@@ -50,7 +52,7 @@ public class Encryption {
     }
 
 
-    public static byte[] StringtoByte(String str) {
+    public static byte[] stringToByte(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -62,7 +64,7 @@ public class Encryption {
         return bytes;
     }
 
-    public static String BytetoString(byte[] bytes) {
+    public static String byteToString(byte[] bytes) {
         if (bytes == null) {
             return null;
         }
